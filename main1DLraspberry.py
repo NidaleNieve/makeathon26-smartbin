@@ -30,7 +30,7 @@ def main():
         print("Loading model...")
         # CHANGE 1: Updated to a standard Linux path structure. 
         # Make sure to place your model here or update this path!
-        model_path = '/home/pi/DL/model_Training-260227-105751_opt_sgd.hdl'
+        model_path = '/home/smartbin/DL/model_Training-260227-105751_opt_sgd.hdl'
         dl_model_handle = ha.read_dl_model(model_path)
         
         img_w = ha.get_dl_model_param_s(dl_model_handle, 'image_width')
