@@ -2,7 +2,7 @@ from machine import Pin
 from neopixel import NeoPixel
 from time import sleep_ms
 
-neo = NeoPixel(Pin(4), 41)   #  8 Leds (0 - 7)
+neo = NeoPixel(Pin(21), 41)   #  8 Leds (0 - 7)
 
 # slökktu á öllum leds
 neo.fill([0, 0, 0])

@@ -8,14 +8,22 @@ import uasyncio as asyncio
 from machine import Pin
 from rasp_connection_async import Connector
 from machine import Pin
+from neopixel import NeoPixel
+from time import sleep_ms
 import time
 
 
 motion_sensor_in = Pin(23, Pin.IN)
 motion_sensor_out = Pin(2, Pin.OUT)
-
+neo = NeoPixel(Pin(4), 41)   #  8 Leds (0 - 7)
 
 min_confidence_score = 60.0
+rainbow_active = False
+
+#turn 
+neo.fill([0, 0, 0])
+neo.write()
+
 
 #setting up BLE Server and listener.
 connection = Connector()
@@ -23,7 +31,33 @@ connection = Connector()
 
 #Reset motoros to starting positions
 
+def wheel(pos):
+    if pos < 0 or pos > 255:
+        return (0, 0, 0)
+    if pos < 85:
+        return (255 - pos * 3, pos * 3, 0)
+    if pos < 170:
+        pos -= 85
+        return (0, 255 - pos * 3, pos * 3)
+    pos -= 170
+    return (pos * 3, 0, 255 - pos * 3)
 
+async def rainbow_effect():
+    global rainbow_active
+    rainbow_active = True
+    # 3 seconds duration, update every 50ms -> 60 frames
+    for j in range(60):
+        if not rainbow_active:
+            break
+        for i in range(41):
+            pixel_index = (i * 256 // 41) + (j * 15)
+            neo[i] = wheel(pixel_index & 255)
+        neo.write()
+        await asyncio.sleep_ms(50)
+    
+    neo.fill([0, 0, 0])
+    neo.write()
+    rainbow_active = False
 
 #Main trash Function, runs when received message from PI (stops the asyncio threads)
     #Basic If or else statements. Depending on the message. "Up", "Down", "Left", "Right" and the confidence score
@@ -37,6 +71,8 @@ connection = Connector()
 
     #Resets Stepper to original position
 def trash(message):
+    global rainbow_active
+    rainbow_active = False # Stop rainbow if it's running
     try:
         # Expecting message format: "category,confidence" (e.g., "paper,85")
         parts = message.split(',')
@@ -83,6 +119,9 @@ def trash(message):
         print("Resetting Stepper to original position")
         #Stepper code
         
+        # Start rainbow effect asynchronously
+        asyncio.create_task(rainbow_effect())
+        
     except Exception as e:
         print(f"Error processing message: {e}")    
 
@@ -102,6 +141,8 @@ async def sensor_listener(poll_ms=50, debounce_ms=500):
 
         #if it detects the movement here it sends the "start" message to the pi
         if status == 1 and last == 0:
+            neo.fill([255, 255, 255])
+            neo.write()
             send_start()
             #debounce
             await asyncio.sleep_ms(debounce_ms)
