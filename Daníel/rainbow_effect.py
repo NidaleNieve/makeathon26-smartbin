@@ -3,7 +3,7 @@ from machine import Pin
 from neopixel import NeoPixel
 
 # Setup NeoPixel for the rainbow effect
-neo = NeoPixel(Pin(4), 41)   # 41 LEDs on Pin 4
+neo = NeoPixel(Pin(21), 41)   # 41 LEDs on Pin 4
 rainbow_active = False
 
 def wheel(pos):
