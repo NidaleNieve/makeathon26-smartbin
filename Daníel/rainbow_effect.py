@@ -26,9 +26,11 @@ async def rainbow_effect():
     j = 0
     while rainbow_active:
         for i in range(41):
-            # Create moving gaps: 5 pixels on, 4 pixels off
-            if (i - j) % 9 < 5:
-                pixel_index = (i * 256 // 41) + (j * 15)
+            # Create a single moving segment of 20 pixels, the rest is black
+            if (i - j) % 41 < 20:
+                # Calculate color based on position in the segment and time (j)
+                # This makes the colors pulse and change within the segment
+                pixel_index = (i * 256 // 20) + (j * 15)
                 neo[i] = wheel(pixel_index & 255)
             else:
                 neo[i] = (0, 0, 0)
