@@ -36,13 +36,14 @@ def main():
         img_w = ha.get_dl_model_param_s(dl_model_handle, 'image_width')
         img_h = ha.get_dl_model_param_s(dl_model_handle, 'image_height')
         
-        try:
+        #try:
             # Force CPU (Required on Raspberry Pi)
-            ha.set_dl_model_param(dl_model_handle, 'device', 'cpu')
-        except:
-            pass 
+        ha.set_dl_model_param(dl_model_handle, 'runtime', 'cpu')
+        print("works")
+        #except:
+        #    pass 
             
-        ha.set_dl_model_param(dl_model_handle, 'batch_size', 1)
+        # ha.set_dl_model_param(dl_model_handle, 'batch_size', 1)
 
         # 2. INITIALIZE IDS CAMERA
         print("Connecting to IDS camera...")
