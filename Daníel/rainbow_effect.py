@@ -19,17 +19,21 @@ def wheel(pos):
     return (pos * 3, 0, 255 - pos * 3)
 
 async def rainbow_effect():
-    """Runs a rainbow effect for 3 seconds."""
+    """Runs a moving rainbow effect with black gaps for 3 seconds."""
     global rainbow_active
     rainbow_active = True
     
     # 3 seconds duration, update every 50ms -> 60 frames
-    for j in range(6000000):
+    for j in range(60):
         if not rainbow_active:
             break
         for i in range(41):
-            pixel_index = (i * 256 // 41) + (j * 15)
-            neo[i] = wheel(pixel_index & 255)
+            # Create moving gaps: 5 pixels on, 4 pixels off
+            if (i - j) % 9 < 5:
+                pixel_index = (i * 256 // 41) + (j * 15)
+                neo[i] = wheel(pixel_index & 255)
+            else:
+                neo[i] = (0, 0, 0)
         neo.write()
         await asyncio.sleep_ms(50)
     
