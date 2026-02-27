@@ -4,42 +4,9 @@
     #confidence score minimum
     #motor starting positions
 
-import time
-import rasp_connection
-
-
-
-
 
 #setting up BLE Server and listener. Uses asyncio to run the server and listener concurrently
 
-connection = rasp_connection.Connector()
-
-def left():
-    print("left!")
-
-def right():
-    print("right!")
-
-def up():
-    print("up!")
-
-def down():
-    print("down!")
-    connection.send("test")
-
-connection.attach("left", left)
-connection.attach("right", right)
-connection.attach("up", up)
-connection.attach("down", down)
-
-
-
-try:
-    while True:
-        time.sleep(1)
-except KeyboardInterrupt:
-    pass
 
 
 #Reset motoros to starting positions
