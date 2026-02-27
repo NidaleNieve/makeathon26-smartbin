@@ -136,5 +136,5 @@ def take_picture():
         if 'window' in locals():
             ha.close_window(window)
         print("Cleaned up resources.")
-        return ("None")
+        
 
