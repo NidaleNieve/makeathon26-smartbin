@@ -1,0 +1,11 @@
+Motion sensor in:23
+Motion sensor out:2
+
+neopixel: 21
+
+Servo: 6
+
+Stepper Dir: 17
+Stepper step: 16
+Stepper enable: 18
+
