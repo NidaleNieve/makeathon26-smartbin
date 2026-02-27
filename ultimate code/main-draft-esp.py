@@ -103,16 +103,16 @@ def trash(message):
         stepper.enable(True)
         if category == "paper":
             print("Moving stepper to Paper position")
-            stepper.move_to_position(0.25) # 1/4 turn
+            stepper.move_to_position(0.1) # 1/4 turn
         elif category == "plastic":
             print("Moving stepper to Plastic position")
-            stepper.move_to_position(0.5) # 1/2 turn
+            stepper.move_to_position(0.35) # 1/2 turn
         elif category == "glass":
             print("Moving stepper to Glass position")
-            stepper.move_to_position(0.75) # 3/4 turn
+            stepper.move_to_position(0.6) # 3/4 turn
         else:
             print("Moving stepper to Waste position")
-            stepper.move_to_position(0.0) # 0 turn (starting position)
+            stepper.move_to_position(0.9) # 0 turn (starting position)
 
             
         #Moves servo to push the lid open
