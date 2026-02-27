@@ -15,7 +15,7 @@ import time
 
 motion_sensor_in = Pin(23, Pin.IN)
 motion_sensor_out = Pin(2, Pin.OUT)
-neo = NeoPixel(Pin(4), 41)   #  8 Leds (0 - 7)
+neo = NeoPixel(Pin(21), 41)   #  8 Leds (0 - 7)
 
 min_confidence_score = 60.0
 rainbow_active = False
@@ -42,6 +42,7 @@ def wheel(pos):
     pos -= 170
     return (pos * 3, 0, 255 - pos * 3)
 
+#when done sorting a cool rainbow effect will play on the neopixel
 async def rainbow_effect():
     global rainbow_active
     rainbow_active = True
