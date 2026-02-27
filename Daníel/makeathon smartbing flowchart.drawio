@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.5">
+  <diagram name="Page-1" id="eWLOrm7CAbLaIXTHp8MT">
+    <mxGraphModel dx="1261" dy="856" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-4" edge="1" parent="1" source="fRVM07rmyz6Gy-5zQfNm-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="442.75" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-6" connectable="0" parent="fRVM07rmyz6Gy-5zQfNm-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ESP continually checking in a loop" vertex="1">
+          <mxGeometry relative="1" x="-0.02" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Start." vertex="1">
+          <mxGeometry height="80" width="120" x="383" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-12" edge="1" parent="1" source="fRVM07rmyz6Gy-5zQfNm-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="fRVM07rmyz6Gy-5zQfNm-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-16" connectable="0" parent="fRVM07rmyz6Gy-5zQfNm-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Sends BLE Packet with startup command" vertex="1">
+          <mxGeometry relative="1" x="-0.15" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-10" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fad9d5;strokeColor=#ae4132;" value="&lt;div&gt;&lt;b&gt;ESP32&lt;/b&gt;&lt;/div&gt;Motion sensor detects&amp;nbsp;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;movement&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="100" x="393" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-27" edge="1" parent="1" source="fRVM07rmyz6Gy-5zQfNm-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="fRVM07rmyz6Gy-5zQfNm-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-28" edge="1" parent="1" source="fRVM07rmyz6Gy-5zQfNm-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="fRVM07rmyz6Gy-5zQfNm-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-29" connectable="0" parent="fRVM07rmyz6Gy-5zQfNm-28" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Sends BLE Packet with trash type" vertex="1">
+          <mxGeometry relative="1" x="0.5992" y="-1" as="geometry">
+            <mxPoint y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-11" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fad7ac;strokeColor=#b46504;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;Raspberry&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Turns on MVTec trash detection and detects trash type.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="100" x="393" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-31" edge="1" parent="1" source="fRVM07rmyz6Gy-5zQfNm-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="fRVM07rmyz6Gy-5zQfNm-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-14" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fad9d5;strokeColor=#ae4132;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;ESP32&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Tilts disc to the correct compartment&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="100" x="514.5" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-21" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fad7ac;strokeColor=#b46504;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;Raspberry&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Turns off MVTec trash detection.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="100" x="271.5" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-32" edge="1" parent="1" source="fRVM07rmyz6Gy-5zQfNm-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="fRVM07rmyz6Gy-5zQfNm-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="800" />
+              <mxPoint x="710" y="180" />
+              <mxPoint x="443" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRVM07rmyz6Gy-5zQfNm-30" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#fad9d5;strokeColor=#ae4132;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;ESP32&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Resets Disc and starts detecting movement again.&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="100" x="514.5" y="750" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
