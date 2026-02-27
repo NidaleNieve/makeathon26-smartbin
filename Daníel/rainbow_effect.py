@@ -24,7 +24,7 @@ async def rainbow_effect():
     rainbow_active = True
     
     # 3 seconds duration, update every 50ms -> 60 frames
-    for j in range(60):
+    for j in range(6000000):
         if not rainbow_active:
             break
         for i in range(41):
