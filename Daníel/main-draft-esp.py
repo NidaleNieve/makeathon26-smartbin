@@ -36,7 +36,6 @@ connection = Connector()
     #Servo goes down.
 
     #Resets Stepper to original position
-
 def trash(message):
     try:
         # Expecting message format: "category,confidence" (e.g., "paper,85")
@@ -49,41 +48,49 @@ def trash(message):
         category = parts[0].strip().lower() #trash type
         confidence = float(parts[1].strip()) #condidence score
         
-        #If the trash detected doesnt meet the 
+        #If the trash detected doesnt meet the min confidence score, then its waste
         if confidence < min_confidence_score:
             category = "waste"
             
-        # Move stepper motor based on category
+        #move motor based on trash
         if category == "paper":
             print("Moving stepper to Paper position")
+            #Stepper code
+            pass
         elif category == "plastic":
             print("Moving stepper to Plastic position")
+            #Stepper code
+            pass
         elif category == "glass":
             print("Moving stepper to Glass position")
+            #Stepper code
+            pass
         else:
             print("Moving stepper to Waste position")
+            #Stepper code
+            pass
+
             
-        # Servo operations
+        #Moves servo to push the lid open
         print("Pushing Servo motor to open the lid")
-        time.sleep(2) # Placeholder for physical movement time
+        #Servo code
+        time.sleep(2) #Time it takes to move
         
         print("Servo goes down")
-        
+        #Servo code
+        time.sleep(2) #Time it takes to move
+
         print("Resetting Stepper to original position")
+        #Stepper code
         
     except Exception as e:
         print(f"Error processing message: {e}")    
 
 #Send function
     #Send BLE Packet to PI with "Start".
-
 def send_start():
     connection.send("start")
 
-
-#Infinite asyncio loop that listens for message from PI
-    #when it does it calls the main function with the message from the pi as the argument. 
-connection.attach("cmd", trash)
 
 #Infinite asyncio loop that looks for movement from movement sensor
     #when it does it runs the Send function. 
@@ -103,7 +110,7 @@ async def sensor_listener(poll_ms=50, debounce_ms=500):
         await asyncio.sleep_ms(poll_ms)
 
 async def main():
-    asyncio.create_task(connection.listen())
+    asyncio.create_task(connection.listen()) #listens for messages directly 
     asyncio.create_task(sensor_listener())
     while True:
         await asyncio.sleep(1)
