@@ -14,12 +14,14 @@ import time
 #custom libraries
 from servo import Servo
 from rasp_connection_async import Connector
+from stepper import Stepper
 
 
 motion_sensor_in = Pin(23, Pin.IN)
 motion_sensor_out = Pin(2, Pin.OUT)
 neo = NeoPixel(Pin(21), 41)
 servo = Servo(Pin(6), freq=50, min_us=500, max_us=2500)
+stepper = Stepper(step_pin=16, dir_pin=17, en_pin=18)
 
 
 min_confidence_score = 60.0
@@ -98,22 +100,19 @@ def trash(message):
             category = "waste"
             
         #move motor based on trash
+        stepper.enable(True)
         if category == "paper":
             print("Moving stepper to Paper position")
-            #Stepper code
-            pass
+            stepper.move_to_position(0.25) # 1/4 turn
         elif category == "plastic":
             print("Moving stepper to Plastic position")
-            #Stepper code
-            pass
+            stepper.move_to_position(0.5) # 1/2 turn
         elif category == "glass":
             print("Moving stepper to Glass position")
-            #Stepper code
-            pass
+            stepper.move_to_position(0.75) # 3/4 turn
         else:
             print("Moving stepper to Waste position")
-            #Stepper code
-            pass
+            stepper.move_to_position(0.0) # 0 turn (starting position)
 
             
         #Moves servo to push the lid open
@@ -126,7 +125,8 @@ def trash(message):
         time.sleep(2) #Time it takes to move
 
         print("Resetting Stepper to original position")
-        #Stepper code
+        stepper.reset_position()
+        stepper.enable(False)
         
         # Start rainbow effect asynchronously
         asyncio.create_task(rainbow_effect())
