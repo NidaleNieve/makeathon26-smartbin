@@ -63,6 +63,8 @@ async def running():
                 except:
                     # if it failed to send we place it back in the queue where we took it.
                     Connection.items_to_send.insert(0, item)
+            else:
+                await asyncio.sleep(1)
 
 
 async def start():
