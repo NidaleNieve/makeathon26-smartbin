@@ -63,7 +63,7 @@ def main():
         
         window = open_window(cam_w // 2, cam_h // 2)
         ha.set_part(window, 0, 0, cam_h - 1, cam_w - 1)
-        ha.set_font(window, 'Courier New-16')
+        ha.set_font(window, 'DejaVu Sans-16')
 
         print("Classification Active. Press Ctrl+C to exit.")
         
