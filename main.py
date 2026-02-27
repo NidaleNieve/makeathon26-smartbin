@@ -1,7 +1,12 @@
 import time
 import rasp_connection
 
+from servo import Servo
+from machine import Pin
+
 print("Start program.")
+
+servo = Servo(Pin(6), freq=50, min_us=500, max_us=2500)
 
 connection = rasp_connection.Connector()
 
@@ -24,7 +29,8 @@ connection.attach("right", right)
 connection.attach("up", up)
 connection.attach("down", down)
 
-
+#Start position
+servo.write_angle(0)
 
 try:
     while True:
