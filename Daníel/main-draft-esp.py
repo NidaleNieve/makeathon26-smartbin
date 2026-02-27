@@ -54,7 +54,7 @@ async def rainbow_effect():
             pixel_index = (i * 256 // 41) + (j * 15)
             neo[i] = wheel(pixel_index & 255)
         neo.write()
-        await asyncio.sleep_ms(50)
+        await asyncio.sleep_ms(20)
     
     neo.fill([0, 0, 0])
     neo.write()
