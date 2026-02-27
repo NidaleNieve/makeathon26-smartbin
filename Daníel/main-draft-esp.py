@@ -15,7 +15,7 @@ import time
 
 motion_sensor_in = Pin(23, Pin.IN)
 motion_sensor_out = Pin(2, Pin.OUT)
-neo = NeoPixel(Pin(21), 41)   #  8 Leds (0 - 7)
+neo = NeoPixel(Pin(21), 41)
 
 min_confidence_score = 60.0
 rainbow_active = False
