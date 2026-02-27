@@ -12,6 +12,7 @@ def most_common(lst):
 
 # Define certain callback functions
 def motion():
+    global connection
     values = []
     time.sleep(1)
     for i in range(5):
@@ -32,11 +33,13 @@ def motion():
                 connection.send("West")
             case _:
                 pass
-
+    else:
+        print("Either no connection or confidence low")
 
 
 # Unfortunately, I was not able to make async disappear, please run yer code like this when using the connection module.
 async def main():
+    global connection
     await esp_connection.start()
     connection = esp_connection.Connection()
 
