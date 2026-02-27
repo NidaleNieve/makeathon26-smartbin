@@ -35,9 +35,6 @@ _IRQ_ENCRYPTION_UPDATE = const(28)
 _IRQ_GET_SECRET = const(29)
 _IRQ_SET_SECRET = const(30)
 
-
-print("Hello world!")
-
 # Standard Nordic UART Service UUIDs
 MOVEMENT_SERVICE_UUID = bluetooth.UUID('6E400001-B5A3-F393-E0A9-E50E24DCCA9E')
 UART_WRITE_UUID = bluetooth.UUID('6E400002-B5A3-F393-E0A9-E50E24DCCA9E')  # Pi writes here

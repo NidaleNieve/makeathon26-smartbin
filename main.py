@@ -17,7 +17,7 @@ def up():
 
 def down():
     print("down!")
-    connection.send("FUCKOFF, THIS IS TOO MUCH INFO, RASPY. AAAAA")
+    connection.send("test")
 
 connection.attach("left", left)
 connection.attach("right", right)
