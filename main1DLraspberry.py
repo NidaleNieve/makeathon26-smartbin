@@ -29,7 +29,7 @@ ha.set_system('thread_num', 4)
 print("Loading model...")
 # CHANGE 1: Updated to a standard Linux path structure. 
 # Make sure to place your model here or update this path!
-model_path = '/home/smartbin/DL/model_Training-260227-105751_opt_sgd.hdl'
+model_path = '/home/smartbin/model_Training-N4.hdl'
 dl_model_handle = ha.read_dl_model(model_path)
 
 img_w = ha.get_dl_model_param_s(dl_model_handle, 'image_width')
@@ -72,8 +72,10 @@ def take_picture():
         # A. Grab Image
         raw_image = ha.grab_image(acq_handle)
         
+        image_flipped = ha.mirror_image(raw_image, 'row')
+
         # B. NUMPY BIT-DEPTH CORRECTION
-        img_np = ha.himage_as_numpy_array(raw_image)
+        img_np = ha.himage_as_numpy_array(image_flipped)
         
         if img_np.dtype == np.uint16:
             img_max = img_np.max()
