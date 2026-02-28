@@ -3,9 +3,7 @@ from time import sleep_ms
 
 # Initialize motor driver
 motor = Stepper(
-    en_pin=5, dir_pin=16, step_pin=17,
-    ms1_pin=27, ms2_pin=26, ms3_pin=25,
-    microstep=8       # 1/8-step mode
+    en_pin=18, dir_pin=16, step_pin=17,
 )
 
 # Continuous rotation at 2 RPS
